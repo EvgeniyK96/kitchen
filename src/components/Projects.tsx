@@ -34,11 +34,12 @@ export default function Projects({ filter, onFilter }: Props) {
           x: () => -distance(),
           ease: 'none',
           scrollTrigger: {
-            trigger: q('.prj-stage')[0],
-            start: 'center center',
+            // секция занимает ровно экран (см. CSS) и закрепляется от своего верха,
+            // поэтому заголовок и карточки целиком видны под шапкой
+            trigger: root.current,
+            start: 'top top',
             end: () => `+=${distance()}`,
-            pin: root.current,
-            pinSpacing: true,
+            pin: true,
             scrub: 0.6,
             invalidateOnRefresh: true,
           },
@@ -48,7 +49,7 @@ export default function Projects({ filter, onFilter }: Props) {
           gsap.fromTo(im, { xPercent: -6 }, {
             xPercent: 6,
             ease: 'none',
-            scrollTrigger: { trigger: q('.prj-stage')[0], start: 'center center', end: () => `+=${distance()}`, scrub: true },
+            scrollTrigger: { trigger: root.current, start: 'top top', end: () => `+=${distance()}`, scrub: true },
           })
         })
       })

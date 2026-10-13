@@ -12,8 +12,10 @@ export default function BeforeAfter() {
       const q = gsap.utils.selector(root)
       const mm = gsap.matchMedia()
       mm.add(
+        // функция вызывается, только если совпало хотя бы одно условие — поэтому mobile обязателен
         {
           desktop: '(min-width: 861px)',
+          mobile: '(max-width: 860px)',
           reduce: '(prefers-reduced-motion: reduce)',
         },
         (ctx) => {

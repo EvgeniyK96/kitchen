@@ -167,3 +167,56 @@
     margin-left: 0;
   }
 }
+
+/* Десктоп: секция = один экран, карточки по высоте экрана */
+@media (min-width: 861px) {
+  .prj {
+    --card-h: clamp(240px, calc(100svh - var(--header-h) - 330px), 520px);
+    height: 100svh;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--header-h) + clamp(20px, 3svh, 40px)) 0 clamp(20px, 3svh, 40px);
+  }
+
+  .prj-head .h2 {
+    font-size: clamp(44px, 5vw, 76px);
+  }
+
+  .prj-head .lead {
+    font-size: 16px;
+  }
+
+  .prj-filters {
+    margin: 0 0 clamp(16px, 2.5svh, 28px);
+  }
+
+  .prj-stage {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .prj-card {
+    flex: 0 0 calc(var(--card-h) * 0.8);
+  }
+
+  .prj-ph {
+    height: var(--card-h);
+    aspect-ratio: auto;
+  }
+
+  .prj-meta {
+    padding-top: 12px;
+  }
+
+  .prj-title {
+    font-size: 24px;
+  }
+
+  .prj-mats {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
