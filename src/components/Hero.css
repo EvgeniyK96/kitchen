@@ -1,0 +1,186 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(32px, 6vw, 110px);
+  padding-top: var(--header-h);
+}
+
+.hero-reveal {
+  visibility: hidden;
+}
+
+.hero-title {
+  font-size: clamp(56px, 9.4vw, 152px);
+  max-width: 7.5em;
+}
+
+.hero-copy .lead {
+  margin-top: clamp(20px, 3vw, 36px);
+  max-width: 30em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+/* Рамка с секвенцией */
+.hero-frame {
+  --fh: min(calc(100svh - var(--header-h) - 120px), 760px);
+  position: relative;
+  margin: 0 0 0 44px;
+  width: calc(var(--fh) * 9 / 16);
+  height: var(--fh);
+}
+
+.hero-canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--graphite-2);
+}
+
+/* Размерные линии */
+.hero-dim {
+  position: absolute;
+  color: var(--yellow);
+}
+
+.hero-rule {
+  /* линия с засечками на концах, как на чертеже */
+  background: linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat;
+  border-inline: 1.5px solid currentColor;
+}
+
+.hero-rule.hero-dim-w {
+  left: 0;
+  right: 0;
+  top: -22px;
+  height: 12px;
+}
+
+.hero-rule.hero-dim-h {
+  top: 0;
+  bottom: 0;
+  left: -28px;
+  width: 12px;
+  border-inline: 0;
+  border-block: 1.5px solid currentColor;
+  background: linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
+}
+
+.hero-dim-label {
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 3px 8px;
+  background: var(--graphite);
+  color: var(--yellow);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-dim-label b {
+  font-weight: 600;
+}
+
+.hero-dim-label.hero-dim-w {
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero-dim-label.hero-dim-h {
+  top: 50%;
+  left: -24px;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.hero-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  height: 24px;
+  font-size: 14px;
+  color: var(--muted-on-dark);
+}
+
+.hero-cap span {
+  position: absolute;
+  inset: 0;
+}
+
+/* Подсказка прокрутки */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  width: 1.5px;
+  height: 46px;
+  background: var(--line-dark);
+  overflow: hidden;
+}
+
+.hero-scroll span {
+  position: absolute;
+  inset: 0;
+  background: var(--yellow);
+  animation: hero-scroll 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-scroll {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@media (max-width: 860px) {
+  .hero {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 64px;
+    padding-top: calc(var(--header-h) + 32px);
+    padding-bottom: 80px;
+  }
+
+  .hero-frame {
+    --fh: min(70svh, 560px);
+    margin: 0 auto;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero-cap {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,96 @@
+.prod {
+  overflow: hidden;
+}
+
+.prod-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 100px);
+}
+
+.prod-copy .lead {
+  margin-top: 24px;
+}
+
+.prod-machines {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+}
+
+@property --rule {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
+}
+
+.prod-machines li {
+  --rule: 1;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.prod-machines li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--line-dark);
+  transform: scaleX(var(--rule));
+  transform-origin: left;
+}
+
+.prod-machines b {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 26px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.prod-machines span {
+  color: var(--muted-on-dark);
+  font-size: 15px;
+  text-align: right;
+}
+
+.prod-clips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.prod-clip {
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--graphite-2);
+}
+
+.prod-clip video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 860px) {
+  .prod-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prod-machines li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .prod-machines span {
+    text-align: left;
+  }
+}

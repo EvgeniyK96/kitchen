@@ -1,0 +1,169 @@
+.prj {
+  background: var(--board);
+  overflow: hidden;
+}
+
+.prj-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 26em);
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px 48px;
+}
+
+.prj-filters {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 clamp(32px, 4vw, 56px);
+}
+
+.prj-chip {
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.prj-chip:hover {
+  border-color: var(--graphite);
+}
+
+.prj-chip.is-on {
+  background: var(--graphite);
+  border-color: var(--graphite);
+  color: var(--white);
+}
+
+.prj-track {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--gutter);
+  display: flex;
+  gap: clamp(16px, 2vw, 28px);
+  will-change: transform;
+}
+
+.prj-card {
+  flex: 0 0 clamp(260px, 26vw, 380px);
+}
+
+.prj-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+}
+
+.prj-ph {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--line);
+}
+
+.prj-ph img {
+  width: 112%;
+  max-width: none;
+  height: 100%;
+  margin-left: -6%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.prj-open:hover .prj-ph img {
+  transform: scale(1.04);
+}
+
+/* ценник как наклейка с раскроя */
+.prj-price {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 7px 12px 6px;
+  background: var(--yellow);
+  color: var(--graphite);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.prj-count {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(40, 40, 40, 0.72);
+  color: var(--white);
+  font-size: 13px;
+}
+
+.prj-meta {
+  padding-top: 14px;
+}
+
+.prj-loc {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.prj-title {
+  margin: 4px 0 6px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.prj-mats {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+@media (max-width: 860px) {
+  .prj-head {
+    grid-template-columns: 1fr;
+  }
+
+  .prj-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-right: calc(var(--gutter) * -1);
+    padding-right: var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .prj-chip {
+    flex: none;
+  }
+
+  .prj-track {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: none;
+    padding-bottom: 8px;
+  }
+
+  .prj-card {
+    flex-basis: 78vw;
+    scroll-snap-align: start;
+  }
+
+  .prj-ph img {
+    width: 100%;
+    margin-left: 0;
+  }
+}

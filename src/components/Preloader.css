@@ -1,0 +1,55 @@
+.pre {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.pre-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--graphite);
+  clip-path: inset(0 0 0 0);
+  pointer-events: auto;
+}
+
+.pre-stage {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: min(300px, 62vw);
+}
+
+.pre-logo {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.pre-dim {
+  width: 100%;
+  overflow: visible;
+}
+
+.pre-dim line,
+.pre-dim path {
+  stroke: var(--yellow);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.pre-dim .pre-dim-arrows {
+  fill: var(--yellow);
+  stroke: none;
+}
+
+.pre-dim-label {
+  margin-top: -6px;
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+  color: var(--muted-on-dark);
+  letter-spacing: 0.02em;
+}

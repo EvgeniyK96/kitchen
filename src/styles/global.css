@@ -1,0 +1,172 @@
+:root {
+  /* Цвета логотипа */
+  --graphite: #282828;
+  --graphite-2: #323130;
+  --graphite-3: #3e3d3b;
+  --yellow: #ffe01b;
+  --yellow-ink: #8a7400; /* жёлтый, затемнённый для текста на светлом */
+  /* Материалы */
+  --board: #ecebe7;      /* белый ЛДСП */
+  --white: #fafaf8;
+  --oak: #9c6b43;
+  --text: #282828;
+  --muted: #6b6a65;
+  --muted-on-dark: #a9a7a1;
+  --line: #d4d3ce;
+  --line-dark: rgba(255, 255, 255, 0.12);
+
+  --display: 'Fira Sans Extra Condensed', 'Arial Narrow', sans-serif;
+  --body: 'Golos Text', system-ui, sans-serif;
+
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1320px;
+  --header-h: 72px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--text);
+  font: 400 17px/1.55 var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.display {
+  font-family: var(--display);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+.h2 {
+  font-size: clamp(44px, 7vw, 104px);
+}
+
+.lead {
+  font-size: clamp(17px, 1.4vw, 20px);
+  color: var(--muted);
+  max-width: 36em;
+  margin: 0;
+}
+
+.section {
+  padding: clamp(80px, 12vw, 160px) 0;
+}
+
+.on-dark {
+  background: var(--graphite);
+  color: var(--white);
+}
+
+.on-dark .lead {
+  color: var(--muted-on-dark);
+}
+
+/* Кнопки */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--yellow {
+  background: var(--yellow);
+  color: var(--graphite);
+}
+
+.btn--yellow:hover {
+  background: #fff04f;
+}
+
+.btn--line {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+}
+
+.btn--line:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn--dark {
+  background: var(--graphite);
+  color: var(--white);
+}
+
+.btn--dark:hover {
+  background: var(--graphite-3);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
